@@ -13,6 +13,7 @@ package org.webrtc;
 import static org.webrtc.MediaCodecUtils.EXYNOS_PREFIX;
 import static org.webrtc.MediaCodecUtils.INTEL_PREFIX;
 import static org.webrtc.MediaCodecUtils.QCOM_PREFIX;
+import static org.webrtc.MediaCodecUtils.ROCKCHIP_PREFIX;
 
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
@@ -233,7 +234,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     }
     String name = info.getName();
     // QCOM and Exynos H264 encoders are always supported.
-    return name.startsWith(QCOM_PREFIX) || name.startsWith(EXYNOS_PREFIX);
+    return name.startsWith(QCOM_PREFIX) || name.startsWith(EXYNOS_PREFIX)|| name.startsWith(ROCKCHIP_PREFIX);
   }
 
   private boolean isMediaCodecAllowed(MediaCodecInfo info) {
@@ -273,6 +274,6 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
 
   private boolean isH264HighProfileSupported(MediaCodecInfo info) {
     return enableH264HighProfile && Build.VERSION.SDK_INT > Build.VERSION_CODES.M
-      && info.getName().startsWith(EXYNOS_PREFIX);
+      && (info.getName().startsWith(EXYNOS_PREFIX)||info.getName().startsWith(ROCKCHIP_PREFIX));
   }
 }

@@ -30,6 +30,7 @@ class MediaCodecUtils {
   static final String MARVELL_PREFIX = "OMX.Marvell.";
   static final String NVIDIA_PREFIX = "OMX.Nvidia.";
   static final String QCOM_PREFIX = "OMX.qcom.";
+  static final String ROCKCHIP_PREFIX = "OMX.rk.";
   static final String[] SOFTWARE_IMPLEMENTATION_PREFIXES = {
     "OMX.google.", "OMX.SEC.", "c2.android"};
 
